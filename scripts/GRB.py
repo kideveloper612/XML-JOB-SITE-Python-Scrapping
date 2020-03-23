@@ -56,7 +56,7 @@ def GRB():
         if data is None:
             break
         for vacancy in data:
-            title = vacancy['title']
+            title = vacancy['title'].replace(' – ', ' - ')
             url = 'https://www.grb.uk.com/graduate-jobs/' + vacancy['jobUrl']
             if url in urls:
                 continue

@@ -36,6 +36,15 @@ def generator_xml(lines, filename):
     output_file.close()
 
 
+def duplicated_sector(lines):
+    for i in range(len(lines)-2):
+        for j in range(i+1, len(lines)-1):
+            if lines[i][5] == lines[j][5]:
+                lines[i][2] = lines[i][2] + ', ' + lines[j][2]
+                lines.pop(j)
+    return lines
+
+
 def milkround():
     initial_url = 'https://www.milkround.com/'
     soup = BeautifulSoup(requests.request('GET', url=initial_url).content, 'html5lib')
@@ -65,16 +74,18 @@ def milkround():
             cards = url_soup.find_all('div', {'class': 'job'})
             print(url)
             for card in cards:
-                title = card.find('div', {'class': 'job-title'}).text.replace('\n', '').replace('  ', '').strip()
+                title = card.find('div', {'class': 'job-title'}).a.text.replace('\n', '').replace('  ', '').replace(' – ', ' - ').strip()
                 link = card.find('div', {'class': 'job-title'}).a['href']
                 employer = card.find('li', {'class': 'company'}).text.strip()
-                location = card.find('li', {'class': 'location'}).text.replace('\n', '').replace('  ', '').replace('from updateupdate', '').strip()
+                card.find('li', {'class': 'location'}).find('div', {'class': 'commute-time-info'}).decompose()
+                location = card.find('li', {'class': 'location'}).text.replace('\n', '').replace('  ', '').strip()
                 line = [employer.replace(' - ', ' '), title.replace(' - ', ' '), sec.replace(' - ', ' '),
                         location.replace(' - ', ' '), provider, link + '||View']
                 if line not in lines:
                     print(line)
                     lines.append(line)
-            generator_xml(lines=lines, filename='{}.xml'.format(provider))
+        rows = duplicated_sector(lines=lines)
+        generator_xml(lines=rows, filename='{}.xml'.format(provider))
 
 
 if __name__ == '__main__':

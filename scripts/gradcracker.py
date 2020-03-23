@@ -43,7 +43,7 @@ def gradcracker():
     provider = 'Gradcracker'
     lines = []
     for li in lis:
-        sector = li.span.find(text=True, recursive=False)
+        sector = li.span.find(text=True, recursive=False).strip()
         page = 0
         while True:
             page += 1
@@ -64,16 +64,15 @@ def gradcracker():
                 jobs = result_card.find_all(attrs={'class': 'job'})
                 for job in jobs:
                     if job.find('h2'):
-                        title = job.find('h2').text.replace('\n', ' ').replace('  ', '').strip()
+                        title = job.find('h2').text.replace('\n', ' ').replace('  ', '').replace('  •  ', '').replace(' – ', ' - ').strip()
                         job_link = job.h2.find('a')['href']
                         job_soup = BeautifulSoup(requests.get(url=job_link).content, 'html5lib')
                         location = job_soup.find('span', attrs={'title': 'Location'}).parent.find('span', {
                             'class': 'font-semibold'}).find(text=True, recursive=False).strip()
                         line = [employer, title, sector, location, provider, job_link + '||View']
                         if line not in lines:
-                            print(line)
                             lines.append(line)
-            generator_xml(lines=lines, filename='{}_Again.xml'.format(provider))
+            generator_xml(lines=lines, filename='{}.xml'.format(provider))
 
 
 if __name__ == '__main__':

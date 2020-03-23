@@ -56,10 +56,10 @@ def Debut():
                 break
             for card in cards:
                 link = 'https://jobs.debut.careers/' + card['href']
-                title = card.select('.details .position')[0].text.strip()
+                title = card.select('.details .position')[0].text.replace(' – ', ' - ').strip()
                 employer = card.select('.details .description')[0].text.split('·')[0].strip()
                 location = card.select('.details .description')[0].text.split('·')[2].strip()
-                line = [employer, title, sector, location, provider, link + '||View']
+                line = [employer, title, sector, location, provider, link.replace('-–-', '-') + '||View']
                 if line not in lines:
                     print(line)
                     lines.append(line)

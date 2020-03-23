@@ -54,7 +54,7 @@ def target():
             if view.select('div.pane-content > a'):
                 employer = view.select('div.pane-content > a')[0].text.strip()
                 job = view.select('div.pane-content > h3 >a')[0]
-                title = job.text.strip()
+                title = job.text.replace(' – ', ' - ').strip()
                 link = 'https://targetjobs.co.uk' + job['href']
                 if link in urls:
                     continue
@@ -72,7 +72,7 @@ def target():
                     for s in sectors:
                         sector += s.text.strip() + '|'
                     sector = sector[:-1]
-                line = [employer, title, sector, location, provider, link + '||View']
+                line = [employer, title.replace('’', ''), sector, location.replace('ü', 'u').replace('–', '-'), provider, link + '||View']
                 if line not in lines:
                     print(line)
                     lines.append(line)

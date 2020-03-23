@@ -53,16 +53,17 @@ def prospects():
         rows = link_soup.select('.list-unstyled > li')
         print(all_link)
         for row in rows:
-            title = row.find(attrs={'class': 'card-secondary-title'}).text.strip()
+            title = row.find(attrs={'class': 'card-secondary-title'}).text.replace(' – ', ' - ').strip()
             employer = row.find(class_='card-secondary-meta').li.text.strip()
             link = 'https://www.prospects.ac.uk' + row.a['href']
             soup = BeautifulSoup(requests.get(url=link).content, 'html5lib')
-            if soup.find(class_='dl'):
-                dd = soup.find(class_='dl').dl.find_all('dd')
+            location_detail = soup.find('dt', attrs={'id': 'section-location-details'})
+            if location_detail:
+                dd = location_detail.parent.find_all('dd')
                 location = ''
                 for d in dd:
                     location += d.text.strip() + '|'
-                line = [employer, title, sector, location[:-1], provider, link + '||View']
+                line = [employer, title, sector, location[:-1].replace(' · ', ' | '), provider, link + '||View']
                 if line not in lines:
                     print(line)
                     lines.append(line)

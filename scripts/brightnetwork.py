@@ -57,7 +57,7 @@ def execute():
                         'href']
                     print(employer_link)
                     link_soup = BeautifulSoup(requests.request('GET', url=employer_link).content, 'html5lib')
-                    title = link_soup.select('.page-header')[0].text.replace(' - ', ' ').strip()
+                    title = link_soup.select('.page-header')[0].text.replace(' – ', ' - ').strip()
                     employer = link_soup.find('div', {'class': 'field-related-company'}).a.text.strip()
                     sector = link_soup.find('div', {'class': 'field-sectors'}).find(
                         class_='field-item').text.strip()

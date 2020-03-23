@@ -54,7 +54,7 @@ def graduate():
         urls.append(url)
         print(url)
         for item in items:
-            title = item.find('span', {'class': 'job-list__title'}).text.strip()
+            title = item.find('span', {'class': 'job-list__title'}).text.replace(' – ', ' - ').replace('€', '').replace('£', '').strip()
             emp = item.find('p', {'class': 'job-list__company'})
             if emp.find('span', {'class': 'job-list__rank'}):
                 emp.find('span', {'class': 'job-list__rank'}).decompose()
@@ -71,7 +71,7 @@ def graduate():
             if line not in lines:
                 print(line)
                 lines.append(line)
-        generator_xml(lines=lines, filename='{}.xml'.format(provider))
+        generator_xml(lines=lines, filename='Graduate_Jobs.xml')
 
 
 if __name__ == '__main__':
