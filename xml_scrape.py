@@ -78,7 +78,7 @@ class All:
     def target(self):
         initial_url = 'https://targetjobs.co.uk/search/all/group_facet/Vacancies?page='
         page = 0
-        provider = 'Targetjobs'
+        provider = 'TARGETjobs'
         urls = []
         lines = []
         while True:
@@ -149,7 +149,7 @@ class All:
                     title = card.find('div', {'class': 'job-title'}).text.replace('\n', '').replace('  ', '').strip()
                     link = card.find('div', {'class': 'job-title'}).a['href']
                     employer = card.find('li', {'class': 'company'}).text.strip()
-                    location = card.find('li', {'class': 'location'}).text.replace('\n', '').replace('  ', '').strip()
+                    location = card.find('li', {'class': 'location'}).text.replace('\n', '').replace('  ', '').replace('from updateupdate', '').strip()
                     line = [employer.replace(' - ', ' '), title.replace(' - ', ' '), sec.replace(' - ', ' '),
                             location.replace(' - ', ' '), provider, link + '||View']
                     if line not in lines:
@@ -292,7 +292,7 @@ class All:
         page = 0
         urls = []
         lines = []
-        provider = 'Graduate'
+        provider = 'Graduate Jobs'
         while True:
             page += 1
             url = initial_url + str(page)
@@ -333,7 +333,7 @@ class All:
             sector = sec.text.strip()
             sec_url = initial_url + sec['href'] + '-from_'
             count = -29
-            provider = 'Debut_careers'
+            provider = 'Debut'
             while True:
                 count += 30
                 url = sec_url + str(count)
