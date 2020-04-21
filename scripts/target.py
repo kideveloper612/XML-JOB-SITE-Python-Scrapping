@@ -5,6 +5,7 @@ import xml.etree.cElementTree as ET
 from xml.etree import ElementTree
 from xml.dom import minidom
 import html
+import re
 
 
 def prettify(elem):
@@ -36,6 +37,13 @@ def generator_xml(lines, filename):
     output_file.close()
 
 
+def check_available(sub_url):
+    url = 'https://targetjobs.co.uk' + sub_url
+    available_soup = BeautifulSoup(requests.get(url=url).content, 'html5lib')
+    sorry = available_soup.find(text=re.compile("Sorry"))
+    return sorry
+
+
 def target():
     initial_url = 'https://targetjobs.co.uk/search/all/group_facet/Vacancies?page='
     page = 0
@@ -48,12 +56,18 @@ def target():
         print(page, url)
         soup = BeautifulSoup(requests.get(url=url).content, 'html5lib')
         views = soup.select('.views-row')
+        print(views)
         if not views:
+            print('not')
             break
         for view in views:
             if view.select('div.pane-content > a'):
                 employer = view.select('div.pane-content > a')[0].text.strip()
                 job = view.select('div.pane-content > h3 >a')[0]
+                avail = check_available(sub_url=job['href'])
+                if avail is not None:
+                    print('Oops, not available')
+                    exit()
                 title = job.text.replace(' – ', ' - ').strip()
                 link = 'https://targetjobs.co.uk' + job['href']
                 if link in urls:
@@ -72,11 +86,11 @@ def target():
                     for s in sectors:
                         sector += s.text.strip() + '|'
                     sector = sector[:-1]
-                line = [employer, title.replace('’', ''), sector, location.replace('ü', 'u').replace('–', '-'), provider, link + '||View']
+                line = [employer, title.replace('’', ''), sector, location.replace('ü', 'u').replace('–', '-').replace('’', ''), provider, link + '||View']
                 if line not in lines:
                     print(line)
                     lines.append(line)
-                    generator_xml(lines=lines, filename='{}.xml'.format(provider))
+                    # generator_xml(lines=lines, filename='{}.xml'.format(provider))
 
 
 if __name__ == '__main__':

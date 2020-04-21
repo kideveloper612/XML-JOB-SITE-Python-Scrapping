@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7564ae5-6818-4ae1-bbd6-08e28f062189" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/Sort_Add.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/.idea/scripts.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/Brightnetwork.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Debut.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Debut.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/GRB.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/GRB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Sort_Add.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Sort_Add.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/brightnetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/brightnetwork.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/gradcracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/gradcracker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/gradtouch.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/gradtouch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/graduate.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/graduate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/milkround.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/milkround.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/prospects.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/prospects.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/target.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/target.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,9 +40,17 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Randy/api_response_format/marketcheck" />
   </component>
-  <component name="RunManager" selected="Python.Sort_Add">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\working\python\scrapping\XML_SCRAPPING\flask\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\working\python\scrapping\XML_SCRAPPING\flask" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.app">
     <configuration name="Sort_Add" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="XML_SCRAPPING" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -64,7 +72,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="brightnetwork" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="XML_SCRAPPING" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -72,11 +80,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/flask" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/brightnetwork.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/flask/app.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -150,11 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.app" />
         <item itemvalue="Python.Sort_Add" />
         <item itemvalue="Python.prospects" />
         <item itemvalue="Python.milkround" />
         <item itemvalue="Python.gradtouch" />
-        <item itemvalue="Python.brightnetwork" />
       </list>
     </recent_temporary>
   </component>
@@ -172,26 +180,50 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1584804227120">
+    <state x="725" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585100534440">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584804227120" />
-    <state width="1899" height="300" key="GridCell.Tab.0.bottom" timestamp="1584985704350">
+    <state x="725" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585100534440" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1585253559713">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="300" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584985704350" />
-    <state width="1899" height="300" key="GridCell.Tab.0.center" timestamp="1584985704350">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585253559713" />
+    <state width="1899" height="348" key="GridCell.Tab.0.bottom" timestamp="1585253560874">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="300" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584985704350" />
-    <state width="1899" height="300" key="GridCell.Tab.0.left" timestamp="1584985704350">
+    <state width="1899" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585253560874" />
+    <state width="1899" height="348" key="GridCell.Tab.0.center" timestamp="1585253560874">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="300" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584985704350" />
-    <state width="1899" height="300" key="GridCell.Tab.0.right" timestamp="1584985704350">
+    <state width="1899" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585253560874" />
+    <state width="1899" height="348" key="GridCell.Tab.0.left" timestamp="1585253560873">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="300" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584985704350" />
+    <state width="1899" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585253560873" />
+    <state width="1899" height="348" key="GridCell.Tab.0.right" timestamp="1585253560874">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585253560874" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1585253560879">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585253560879" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1585253560879">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585253560879" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1585253560879">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585253560879" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1585253560879">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585253560879" />
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1585108532916">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1585108532916" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1584564502846">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

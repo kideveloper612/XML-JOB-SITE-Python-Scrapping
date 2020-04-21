@@ -38,24 +38,23 @@ def generator_xml(lines, filename):
 
 def Add():
     path = 'output/'
-    for origin, directories, files in os.walk(path):
-        file_list = files
     lines = []
-    for file in file_list:
-        print(file, '===========================================================================')
-        base_tree = ElementTree.parse(path + file).getroot()
-        for item in base_tree.iter('job'):
-            employer = item.attrib['Employer']
-            title = item.attrib['Title']
-            sector = item.attrib['Sector']
-            location = item.attrib['Location']
-            provider = item.attrib['Provider']
-            link = item.attrib['Link']
-            line = [employer, title, sector, location, provider, link]
-            if line not in lines:
-                print(line)
-                lines.append(line)
-    generator_xml(lines=lines, filename='Total.xml')
+    for origin, directories, files in os.walk(path):
+        for file in files:
+            print(file, '===========================================================================')
+            base_tree = ElementTree.parse(path + file).getroot()
+            for item in base_tree.iter('job'):
+                employer = item.attrib['Employer']
+                title = item.attrib['Title']
+                sector = item.attrib['Sector']
+                location = item.attrib['Location']
+                provider = item.attrib['Provider']
+                link = item.attrib['Link']
+                line = [employer, title, sector, location, provider, link]
+                if line not in lines:
+                    print(line)
+                    lines.append(line)
+        generator_xml(lines=lines, filename='Total.xml')
 
 
 if __name__ == '__main__':

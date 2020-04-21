@@ -52,25 +52,21 @@ def execute():
         rows = initial_soup.select('.search-result-row')
         if rows:
             for row in rows:
-                try:
-                    employer_link = 'https://www.brightnetwork.co.uk' + row.find('a', {'class': 'result-link'})[
-                        'href']
-                    print(employer_link)
-                    link_soup = BeautifulSoup(requests.request('GET', url=employer_link).content, 'html5lib')
-                    title = link_soup.select('.page-header')[0].text.replace(' – ', ' - ').strip()
-                    employer = link_soup.find('div', {'class': 'field-related-company'}).a.text.strip()
-                    sector = link_soup.find('div', {'class': 'field-sectors'}).find(
-                        class_='field-item').text.strip()
-                    location = link_soup.find('div', {'class': 'field-locations'}).find(
-                        class_='field-item').text.replace('\n', ' ').replace('  ', '').strip()
-                    line = [employer, title, sector, location, provider, employer_link + '||View']
-                    if line not in lines:
-                        print(line)
-                        lines.append(line)
-                    generator_xml(lines=lines, filename='{}.xml'.format(provider))
-                except Exception as e:
-                    print(e)
-                    continue
+                employer_link = 'https://www.brightnetwork.co.uk' + row.find('a', {'class': 'result-link'})[
+                    'href']
+                print(employer_link)
+                link_soup = BeautifulSoup(requests.request('GET', url=employer_link).content, 'html5lib')
+                title = link_soup.select('.page-header')[0].text.replace(' – ', ' - ').strip()
+                employer = link_soup.find('div', {'class': 'field-related-company'}).a.text.strip()
+                sector = link_soup.find('div', {'class': 'field-sectors'}).find(
+                    class_='field-item').text.strip()
+                location = link_soup.find('div', {'class': 'field-locations'}).find(
+                    class_='field-item').text.replace('\n', ' ').replace('  ', '').strip()
+                line = [employer, title, sector, location, provider, employer_link + '||View']
+                if line not in lines:
+                    print(line)
+                    lines.append(line)
+                generator_xml(lines=lines, filename='{}.xml'.format(provider))
         else:
             break
 
