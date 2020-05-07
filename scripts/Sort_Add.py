@@ -1,12 +1,9 @@
 import os
-import requests
-from bs4 import BeautifulSoup
 import xml.etree.cElementTree as ET
 from xml.etree import ElementTree
 from xml.dom import minidom
 import html
-import json
-import re
+import mysql.connector
 
 
 def prettify(elem):
@@ -39,6 +36,12 @@ def generator_xml(lines, filename):
 def Add():
     path = 'output/'
     lines = []
+    connection = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        passwd="",
+        database="test"
+    )
     for origin, directories, files in os.walk(path):
         for file in files:
             print(file, '===========================================================================')
@@ -52,9 +55,20 @@ def Add():
                 link = item.attrib['Link']
                 line = [employer, title, sector, location, provider, link]
                 if line not in lines:
-                    print(line)
+                    if connection.is_connected():
+                        cursor = connection.cursor()
+                        sql = "INSERT INTO xml (Employer, Title, Sector, Location, Provider, Link) VALUES (%s, %s, " \
+                              "%s, %s, %s, %s) "
+
+                        cursor.execute(sql, line)
+                        print(line)
+                        connection.commit()
                     lines.append(line)
-        generator_xml(lines=lines, filename='Total.xml')
+        # generator_xml(lines=lines, filename='Total.xml')
+    if connection.is_connected():
+        cursor.close()
+        connection.close()
+        print("MySQL connection is closed")
 
 
 if __name__ == '__main__':
